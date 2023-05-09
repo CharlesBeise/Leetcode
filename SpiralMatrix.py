@@ -1,5 +1,5 @@
 def spiralOrder(matrix):
-    # Initialize the border numbers
+    # Initialize border numbers
     left = 0
     right = len(matrix[0])
     up = 1
