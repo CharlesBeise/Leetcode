@@ -1,8 +1,11 @@
 def spiralOrder(matrix):
+    # Initialize border numbers
     left = 0
     right = len(matrix[0])
     up = 1
     down = len(matrix)
+
+    # Create variables for managing the final result
     result = []
     targetLen = right * down
 
@@ -10,6 +13,7 @@ def spiralOrder(matrix):
     j = 0
 
     while len(result) < targetLen:
+        # Add numbers moving right
         while j < right:
             result.append(matrix[i][j])
             j += 1
@@ -17,6 +21,7 @@ def spiralOrder(matrix):
         j -= 1
         i += 1
 
+        # Add numbers moving down
         while i < down:
             result.append(matrix[i][j])
             i += 1
@@ -24,6 +29,7 @@ def spiralOrder(matrix):
         i -= 1
         j -= 1
 
+        # Add numbers moving left
         while j >= left:
             result.append(matrix[i][j])
             j -= 1
@@ -31,6 +37,7 @@ def spiralOrder(matrix):
         j += 1
         i -= 1
 
+        # Add numbers moving up
         while i >= up:
             result.append(matrix[i][j])
             i -= 1
@@ -38,6 +45,8 @@ def spiralOrder(matrix):
         i += 1
         j += 1
 
+    # If the matrix is a rectangle instead of a square, it will incorrectly
+    # backtrack along the last line. This removes the incorrectly added items
     while len(result) > targetLen:
         result.pop()
 
@@ -50,7 +59,7 @@ if __name__ == '__main__':
 
 
 """
-Keep track of a decreasing "border numbers"
+Keep track of decreasing "border numbers"
 There are 4 phases:
 - Move right
 - Move down
