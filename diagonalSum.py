@@ -11,11 +11,11 @@ def diagonalSum(mat):
     return total
 
 
-
-myMat = [[5]]
-print(diagonalSum(myMat))
-
-
+if __name__ == '__main__':
+    myMat = [[1, 2, 3],
+             [4, 5, 6],
+             [7, 8, 9]]
+    print(diagonalSum(myMat))
 
 """
 Iterate through the list and add the numbers at either end of each list, 
